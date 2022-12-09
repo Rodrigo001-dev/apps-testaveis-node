@@ -13,7 +13,7 @@ interface CreateAppointmentRequest {
 // devolver um Appointment
 type CreateAppointmentResponse = Appointment;
 
-export class CrateAppointment {
+export class CreateAppointment {
   async execute ({
     customer, 
     startsAt, 
