@@ -10,9 +10,10 @@ describe('Create Appointment', () => {
     const startsAt = new Date();
     const endsAt = new Date();
 
-    // a data de término(endsAt) está sendo jogada um(1) dia depois da data de 
+    startsAt.setDate(startsAt.getDate() + 1);
+    // a data de término(endsAt) está sendo jogada dois(2) dias depois da data de 
     // inicio(startsAt), ou seja, o agendamento começaria hoje e terminaria amanhã
-    endsAt.setDate(endsAt.getDate() + 1);
+    endsAt.setDate(endsAt.getDate() + 2);
 
     expect(createAppointment.execute({
       customer: 'John Doe',
