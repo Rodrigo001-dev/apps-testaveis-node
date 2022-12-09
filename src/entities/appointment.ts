@@ -1,7 +1,7 @@
 // essa interface vai anotar quais são as propriedades que cada agendamento vai ter
 export interface AppointmentProps {
   customer: string;
-  startAt: Date;
+  startsAt: Date;
   endsAt: Date
 }
 
@@ -17,7 +17,7 @@ export class Appointment {
     return this.props.customer;
   }
 
-  get startAt () {
+  get startsAt () {
     return this.props.customer;
   }
 
@@ -26,6 +26,13 @@ export class Appointment {
   }
 
   constructor(props: AppointmentProps) {
+    const { startsAt, endsAt } = props;
+
+    // se a data de término for menor ou igual a data de inicio
+    if (endsAt <= startsAt) {
+      throw new Error('Invalid end date');
+    }
+    
     this.props = props;
   }
 }
